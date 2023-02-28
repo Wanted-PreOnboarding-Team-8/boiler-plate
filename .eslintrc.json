@@ -1,17 +1,17 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2021": true,
     "node": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier",
-    "react-app",
-    "react-app/jest"
+    "eslint:recommended", //  eslint --init 명령으로 기본 생성 됨. 단, eslint --init 이후 typescript, react 사용함에 check 
+    "plugin:react/recommended", //  eslint --init 명령으로 기본 생성 됨. 단, eslint --init 이후 typescript, react 사용함에 check
+    "plugin:@typescript-eslint/recommended", //  eslint --init 명령으로 기본 생성 됨. 단, eslint --init 이후 typescript, react 사용함에 check
+    "react-app",  //  CRA로 프로젝트 생성 시 기본 생성 됨.
+    "react-app/jest",  //  CRA로 프로젝트 생성 시 기본 생성 됨.
+    "prettier" //  formatter는 프리티어로 대체함
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
