@@ -9,7 +9,9 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "prettier"
+    "prettier",
+    "react-app",
+    "react-app/jest"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
