@@ -35,6 +35,12 @@
     // 함수 밖에서 선언된 변수와 같은 이름의 변수를 사용하기 위해
     "no-shadow": ["warn"],
     // export default 뿐 아니라 named export 방식도 사용할 수 있게 off
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    //  Reports if a module's default export is unnamed.
+    "import/no-anonymous-default-export": "off",
+    //  Disallow specified global variables.
+    "no-restricted-globals": "off",
+    //  Enforce return statements in callbacks of array methods.
+    "array-callback-return": "off"
   }
 }
