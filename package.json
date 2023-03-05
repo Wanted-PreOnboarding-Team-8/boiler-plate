@@ -22,7 +22,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "husky install",
+    "lint-staged":"lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --cache --write",
+      "eslint --cache"
+    ]
   },
   "browserslist": {
     "production": [
