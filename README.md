@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# 🍽️ Boiler-Plate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 👍 실행
+```bash
+npm i  # 실행 시 husky 및 커밋 메시지 템플릿 적용
+```
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+## 🗂️ Boiler-Plate 폴더 구조
+```bash
+├── .husky
+│
+├── public
+│
+└── src
+    ├── api
+    │
+    ├── components
+    │
+    ├── constants
+    │
+    ├── interface
+    │
+    ├── lib
+    │   ├── hooks
+    │   │
+    │   └── utils
+    │
+    ├── pages
+    │
+    └── Router
+```
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## husky
+### pre-commit
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- staged 된 파일들이 있을 때, 그 파일들만 prettier format합니다. 
 
-### `npm test`
+- formatted된 파일들은 수정 된 것이기 때문에 해당 파일들을 다시 git add로 stage에
+올려줍니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 우리 팀의 노션에 공유된 커밋 컨벤션, 히스토리 관리 도움말 링크를 출력합니다.
 
-### `npm run build`
+### pre-push
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- eslint로 검사 한 결과를 보여주고, warning, error가 있다면 수정 하기 위해
+push를 중단 할 것인지 선택합니다.(user interaction)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 위 선택에서 중단하지 않고 계속 진행하거나, eslint 검사를 통과했다면 push를 통해 업데이트 되는 내용(커밋 메시지와 파일명)에 대해 다시 한번 push 진행 여부를 선택합니다.(user interaction)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- push로 업데이트 되는 목록의 범위 : <origin/master 브랜치> ... <HEAD>
 
-### `npm run eject`
+- 우리 팀의 노션에 공유된 협업 flow 관련 도움말 링크를 출력합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## commit message template
+- 노션에 공유 된 저희 팀의 컨벤션과 이슈를 링크하고 또 커밋과 함께 닫는
+  방법을 적어 두었습니다. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 기존에 템플릿이 없는 경우에만 지정된 파일로 템플릿이 지정됩니다.
+  
+- package.json의 postinstall script를 이용했으며, 지정된 파일은
+  .commitTemplate 입니다.
