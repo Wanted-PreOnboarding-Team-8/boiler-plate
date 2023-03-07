@@ -40,9 +40,17 @@ fi
 
 # orign/master ~ HEAD 브랜치까지 커밋 내역과 변경 된 파일을 화면에 출력한다.
 echo -e "\n${IGREEN}변경 사항(origin/master...HEAD): ${NORMAL}\n"
-git log --oneline origin/master...HEAD > changedList.txt
-echo "" >> changedList.txt
-git diff --name-only origin/master...HEAD >> changedList.txt
+
+if git rev-parse --verify origin/master > /dev/null 2>&1; then     # git rev-parse --verify {브랜치}는 해당 브랜치의 최근 커밋 id를 반환. 없다면 에러가 나는 것을 활용한 조건문
+  # origin/master가 있는 경우
+  git log --oneline origin/master...HEAD > changedList.txt
+  echo "" >> changedList.txt
+  git diff --name-only origin/master...HEAD >> changedList.txt
+else
+  # origin/master가 없는 경우, boiler-plate 파일 구성은 굳이 표시하지 않음.
+  git log --oneline > changedList.txt
+fi
+
 cat changedList.txt
 echo ""
 
